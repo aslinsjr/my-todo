@@ -1,0 +1,9 @@
+:root {
+  --primary-color: #242424;
+  --secondary-color: antiquewhite;
+}
+
+body { 
+  background-color: var(--primary-color);
+  position: relative;
+}

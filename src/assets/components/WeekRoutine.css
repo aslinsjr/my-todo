@@ -1,0 +1,17 @@
+table,
+tr, td, th {
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+tr,td,th {
+    padding: 0.5rem;
+}
+
+table i {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
