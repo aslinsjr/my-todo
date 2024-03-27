@@ -7,11 +7,3 @@ tr, td, th {
 tr,td,th {
     padding: 0.5rem;
 }
-
-table i {
-    display: none;
-}
-
-.show {
-    display: flex;
-}
