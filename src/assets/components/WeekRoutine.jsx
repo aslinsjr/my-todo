@@ -10,7 +10,7 @@ const WeekRoutine = () => {
     let saturday = JSON.parse(localStorage.getItem("saturday"))
     let sunday = JSON.parse(localStorage.getItem("sunday"))
 
-    console.log(monday)
+    console.log(monday.meditation)
     console.log(tuesday)
     console.log(wednesday)
     console.log(thursday)
@@ -25,6 +25,7 @@ const WeekRoutine = () => {
     <div>
         <h2>Quadro de Rotina</h2>
         <table>
+            <tbody>
             <tr>
                 <th>Semana:{""}</th>
                 <th>Segunda</th>
@@ -85,6 +86,7 @@ const WeekRoutine = () => {
                 <td><p className='extra-cash'>{saturday.extraCash}</p></td>
                 <td><p className='extra-cash'>{sunday.extraCash}</p></td>
             </tr>
+            </tbody>
         </table>
     </div>
   )
