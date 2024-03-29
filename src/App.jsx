@@ -76,7 +76,7 @@ function App() {
       }
 
       if(actualDay == 5) {
-        // setFriday(new Routine(meditation, workout, linkedin, study, extraCash))
+        let friday = new Routine(meditation, workout, linkedin, study, extraCash)
 
         localStorage.setItem("friday", JSON.stringify(friday))
       }

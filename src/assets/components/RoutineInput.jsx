@@ -16,6 +16,18 @@ const RoutineInput = ({handleClick, actualDay, handleInput}) => {
         if(actualDay == 3) {
             return "Quarta"
         }
+        if(actualDay == 4) {
+            return "Quinta"
+        }
+        if(actualDay == 5) {
+            return "Sexta"
+        }
+        if(actualDay == 5) {
+            return "Sábado"
+        }
+        if(actualDay == 5) {
+            return "Domingo"
+        }
 
     }
 

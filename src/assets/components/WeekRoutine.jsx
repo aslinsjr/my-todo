@@ -10,7 +10,15 @@ const WeekRoutine = () => {
     let saturday = JSON.parse(localStorage.getItem("saturday"))
     let sunday = JSON.parse(localStorage.getItem("sunday"))
 
+    console.log(monday)
     console.log(tuesday)
+    console.log(wednesday)
+    console.log(thursday)
+    console.log(friday)
+    console.log(saturday)
+    console.log(sunday)
+    
+    
 
 
   return (
