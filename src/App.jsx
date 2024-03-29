@@ -117,8 +117,8 @@ function App() {
 
   return (
     <>
-      <WeekRoutine/>
       <AddButton handleClick={handleClick}/>
+      <WeekRoutine/>
       {click ? <RoutineInput actualDay={actualDay} handleClick={handleClick} handleInput={handleInput}/>  : ""}
       <MissionButton handleClick={handleClick}/>
       {/* {click ? <MissionInput handleInput={handleInput}/>  : ""} */}
