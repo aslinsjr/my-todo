@@ -1,3 +1,7 @@
+h2 {
+    color: antiquewhite;
+}
+
 table,
 tr, td, th {
     border: 1px solid var(--secondary-color);

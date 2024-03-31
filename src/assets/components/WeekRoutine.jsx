@@ -10,16 +10,6 @@ const WeekRoutine = () => {
     let saturday = JSON.parse(localStorage.getItem("saturday"))
     let sunday = JSON.parse(localStorage.getItem("sunday"))
 
-    console.log(monday.meditation)
-    console.log(tuesday)
-    console.log(wednesday)
-    console.log(thursday)
-    console.log(friday)
-    console.log(saturday)
-    console.log(sunday)
-    
-    
-
 
   return (
     <div>
@@ -38,53 +28,53 @@ const WeekRoutine = () => {
             </tr>
             <tr>
                 <th>Meditação / Leitura</th>
-                <td>{monday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
-                <td>{tuesday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
-                <td>{wednesday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
-                <td>{thursday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
-                <td>{friday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
-                <td>{saturday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
-                <td>{sunday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
+                <td>{monday && monday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
+                <td>{tuesday && tuesday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
+                <td>{wednesday && wednesday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
+                <td>{thursday && thursday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
+                <td>{friday && friday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
+                <td>{saturday && saturday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
+                <td>{sunday && sunday.meditation ? <i className="bi bi-check-lg meditation"></i> : <></> }</td>
             </tr>
             <tr>
                 <th>Treino / Alongamento</th>
-                <td>{monday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
-                <td>{tuesday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
-                <td>{wednesday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
-                <td>{thursday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
-                <td>{friday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
-                <td>{saturday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
-                <td>{sunday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
+                <td>{monday && monday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
+                <td>{tuesday && tuesday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
+                <td>{wednesday && wednesday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
+                <td>{thursday && thursday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
+                <td>{friday && friday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
+                <td>{saturday && saturday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
+                <td>{sunday && sunday.workout ? <i className="bi bi-check-lg workout"></i> : <></> }</td>
             </tr>
             <tr>
                 <th>Estudo / Prática</th>
-                <td>{monday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
-                <td>{tuesday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
-                <td>{wednesday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
-                <td>{thursday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
-                <td>{friday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
-                <td>{saturday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
-                <td>{sunday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
+                <td>{monday && monday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
+                <td>{tuesday && tuesday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
+                <td>{wednesday && wednesday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
+                <td>{thursday && thursday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
+                <td>{friday && friday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
+                <td>{saturday && saturday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
+                <td>{sunday && sunday.study ? <i className="bi bi-check-lg study"></i> : <></> }</td>
             </tr>
             <tr>
                 <th>Currículo / LinkedIn</th>
-                <td>{monday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
-                <td>{tuesday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
-                <td>{wednesday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
-                <td>{thursday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
-                <td>{friday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
-                <td>{saturday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
-                <td>{sunday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
+                <td>{monday && monday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
+                <td>{tuesday && tuesday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
+                <td>{wednesday && wednesday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
+                <td>{thursday && thursday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
+                <td>{friday && friday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
+                <td>{saturday && saturday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
+                <td>{sunday && sunday.linkedin ? <i className="bi bi-check-lg linkedin"></i> : <></> }</td>
             </tr>
             <tr>
                 <th>Renda Variável</th>
-                <td><p className='extra-cash'>{monday.extraCash}</p></td>
-                <td><p className='extra-cash'>{tuesday.extraCash}</p></td>
-                <td><p className='extra-cash'>{wednesday.extraCash}</p></td>
-                <td><p className='extra-cash'>{thursday.extraCash}</p></td>
-                <td><p className='extra-cash'>{friday.extraCash}</p></td>
-                <td><p className='extra-cash'>{saturday.extraCash}</p></td>
-                <td><p className='extra-cash'>{sunday.extraCash}</p></td>
+                <td><p className='extra-cash'>{monday && monday.extraCash}</p></td>
+                <td><p className='extra-cash'>{tuesday && tuesday.extraCash}</p></td>
+                <td><p className='extra-cash'>{wednesday && wednesday.extraCash}</p></td>
+                <td><p className='extra-cash'>{thursday && thursday.extraCash}</p></td>
+                <td><p className='extra-cash'>{friday && friday.extraCash}</p></td>
+                <td><p className='extra-cash'>{saturday && saturday.extraCash}</p></td>
+                <td><p className='extra-cash'>{sunday && sunday.extraCash}</p></td>
             </tr>
             </tbody>
         </table>

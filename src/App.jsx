@@ -32,13 +32,6 @@ function App() {
   const [study, setStudy] = useState(false)
   const [extraCash, setExtraCash] = useState(0)
 
-  // const [monday, setMonday] = useState(new Routine(meditation, workout, linkedin, study, extraCash))
-  // const [tuesday, setTuseday] = useState(new Routine(meditation, workout, linkedin, study, extraCash))
-  // const [wednesday, setWednesday] = useState(new Routine(meditation, workout, linkedin, study, extraCash))
-  // const [thursday, setThursday] = useState(new Routine(meditation, workout, linkedin, study, extraCash))
-  // const [friday, setFriday] = useState(new Routine(meditation, workout, linkedin, study, extraCash))
-  // const [saturday, setSaturday] = useState(new Routine(meditation, workout, linkedin, study, extraCash))
-  // const [sunday, setSunday] = useState(new Routine(meditation, workout, linkedin, study, extraCash))
   
   function handleClick(e) {
     e.preventDefault()
@@ -82,13 +75,13 @@ function App() {
       }
 
       if(actualDay == 6) {
-        // setSaturday(new Routine(meditation, workout, linkedin, study, extraCash))
+        let saturday = new Routine(meditation, workout, linkedin, study, extraCash)
 
         localStorage.setItem("saturday", JSON.stringify(saturday))
       }
 
       if(actualDay == 0) {
-        // setSunday(new Routine(meditation, workout, linkedin, study, extraCash))
+        let sunday = new Routine(meditation, workout, linkedin, study, extraCash)
 
         localStorage.setItem("sunday", JSON.stringify(sunday))
       }
