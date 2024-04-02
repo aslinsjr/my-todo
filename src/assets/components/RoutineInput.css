@@ -8,6 +8,10 @@
     z-index: 1;
 }
 
+h2 {
+    color: #242424;
+}
+
 form {
     padding: 2rem;
     display: flex;

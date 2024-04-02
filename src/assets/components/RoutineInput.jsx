@@ -22,13 +22,11 @@ const RoutineInput = ({handleClick, actualDay, handleInput}) => {
         if(actualDay == 5) {
             return "Sexta"
         }
-        if(actualDay == 5) {
+        if(actualDay == 6) {
             return "Sábado"
         }
-        if(actualDay == 5) {
-            return "Domingo"
-        }
 
+        console.log(setDay(actualDay))
     }
 
   return (

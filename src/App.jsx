@@ -47,6 +47,7 @@ function App() {
     if(e.target.id === "submit-btn") {
 
       if(actualDay == 1) {
+        localStorage.clear()
         let monday = new Routine(meditation, workout, linkedin, study, extraCash)
         localStorage.setItem("monday", JSON.stringify(monday))
       }
