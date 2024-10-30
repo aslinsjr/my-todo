@@ -5,11 +5,12 @@ const MissionInput = () => {
   
 
   return (
-    <div>
-        <form>
-          <input type="text" id="pratices-target" placeholder='Insira a meta de estudo da semana'/>
-          <input type="text" />
-          <input type="number" />
+    <div className='mission-input-container'>
+        <form className='mission-form'>
+          <textarea id="study-target" placeholder='Insira a meta de estudo da semana'/>
+          <textarea id="pratices-target" placeholder='Insira a meta de projetos para semana'/>
+          <input type="number" id="extra-cash-target" placeholder='Insira a meta de renda extra semanal'/>
+          <input type="submit" />
         </form>
     </div>
   )

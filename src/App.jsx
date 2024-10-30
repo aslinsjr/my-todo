@@ -37,7 +37,7 @@ function App() {
     e.preventDefault()
 
     if(e.target.id === "missions-btn") {
-      // setClick(true)
+      setClick(true)
     }
 
     if(e.target.id === "add-btn") {
@@ -115,7 +115,7 @@ function App() {
       <WeekRoutine/>
       {click ? <RoutineInput actualDay={actualDay} handleClick={handleClick} handleInput={handleInput}/>  : ""}
       <MissionButton handleClick={handleClick}/>
-      {/* {click ? <MissionInput handleInput={handleInput}/>  : ""} */}
+      {click ? <MissionInput handleInput={handleInput}/>  : ""}
       <MissionsComponent />
     </>
   )
