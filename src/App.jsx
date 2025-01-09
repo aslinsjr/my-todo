@@ -3,6 +3,7 @@ import { useState, useLayoutEffect } from 'react'
 import WeekRoutine from './components/WeekRoutine'
 import MissionInput from './components/MissionInput'
 import GoalsComponent from './components/GoalsComponent'
+import ClockComponent from './components/ClockComponent'
 
 import './App.css'
 
@@ -22,14 +23,17 @@ function App() {
     if (date.getDay() === 1) {
       localStorage.clear()
     }
-    
-  },[])
+
+  }, [])
 
   return (
     <div className='app'>
-    <WeekRoutine />
-    <GoalsComponent />
-      {!weekGoals ? <MissionInput submitWeekGoals={submitWeekGoals}/> : <></>}
+      <ClockComponent date={date}/>
+      <div className="inner-app">
+        <WeekRoutine />
+        <GoalsComponent />
+      </div>
+      {!weekGoals ? <MissionInput submitWeekGoals={submitWeekGoals} /> : <></>}
     </div>
   )
 }
