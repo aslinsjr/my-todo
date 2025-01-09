@@ -1,0 +1,13 @@
+.goals-container h2{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin: 1rem 0;
+    border: 1px solid var(--secondary-color);
+    padding: 0.5rem 2rem;
+}
+
+.goals-container h2 span {
+    font-size: 0.8rem;
+    font-weight: lighter;
+}

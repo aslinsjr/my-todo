@@ -1,9 +1,40 @@
 :root {
   --primary-color: #242424;
-  --secondary-color: antiquewhite;
+  --secondary-color: aliceblue;
+
+  color-scheme: dark light;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
-body { 
-  background-color: var(--primary-color);
+.app { 
+  width: 100%;
+  height: 100vh;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: 5%;
+}
+
+input {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: antiquewhite;
+    --secondary-color: #242424;
+  }
+
+  #error-span {
+    color: rgb(250, 104, 104);
+  }
 }
