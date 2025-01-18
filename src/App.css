@@ -1,6 +1,8 @@
 :root {
   --primary-color: #242424;
-  --secondary-color: aliceblue;
+  --secondary-color: #f0f8ff;
+  --border: 1px solid var(--secondary-color);
+  --hover-btn: rgba(255, 255, 255, 0.5);
 
   color-scheme: dark light;
   background-color: var(--primary-color);
@@ -12,17 +14,15 @@
   height: 100vh;
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items:center ;
-  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.inner-app { 
+.container {
+  width: 100%;
+  padding: 2rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  gap: 5%;
+  min-height: 100vh;
 }
 
 input {
@@ -35,10 +35,23 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+.light {
+  --primary-color: #f0f8ff;
+  --secondary-color: #242424;
+  --hover-btn: rgba(0, 0, 0, 0.5);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
-    --primary-color: antiquewhite;
+    --primary-color: #f0f8ff;
     --secondary-color: #242424;
+    --hover-btn: rgba(0, 0, 0, 0.5);
+  }
+
+  .dark {
+    --primary-color: #242424;
+    --secondary-color: #f0f8ff;
+    --border: 1px solid var(--secondary-color);
   }
 
   #error-span {

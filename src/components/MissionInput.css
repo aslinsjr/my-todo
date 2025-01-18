@@ -28,14 +28,9 @@
     font-size: 0.8rem;
 }
 
-#extra-cash-input {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#extra-cash-input input {
-    max-width: 50%;
+.value-container {
+    display: grid;
+    align-items: end;
 }
 
 #error-span {

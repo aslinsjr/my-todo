@@ -1,8 +1,18 @@
 .clock-container {
-    width: 100%;
+    border-top: var(--border);
     padding: 1rem;
     display: grid;
     gap: 0.5rem;
     text-align: center;
     font-size: large;
+}
+
+.date-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#clock {
+    font-size: 2.5rem;
 }

@@ -1,3 +1,4 @@
+
 .week-routine h2 {
     margin-bottom: 1rem;
 }
@@ -11,6 +12,11 @@
     height: 2.5rem;
     cursor: pointer;
     text-align: center;
+    transition: 0.5s;
+}
+
+.week-routine td:hover {
+    background-color: var(--hover-btn);
 }
 
 .background-modal {

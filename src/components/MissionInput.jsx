@@ -1,19 +1,49 @@
 import './MissionInput.css'
 
-const MissionInput = ({ submitWeekGoals }) => {
+const MissionInput = ( { submitWeekGoals, listTasks, numberTasks, valueTasks } ) => {
 
   function handleSubmit(e) {
     e.preventDefault()
 
-    localStorage.setItem("book-list", e.target.books.value.toLowerCase().replace(/(?:^|\s)(?!da|de|do)\S/g, l => l.toUpperCase()).split(","))
-    localStorage.setItem("classes-list", e.target.classes.value.toLowerCase().replace(/(?:^|\s)(?!da|de|do)\S/g, l => l.toUpperCase()).split(","))
-    localStorage.setItem("projects-list", e.target.projects.value.toLowerCase().replace(/(?:^|\s)(?!da|de|do)\S/g, l => l.toUpperCase()).split(","))
-    localStorage.setItem("english", e.target.english.value)
-    localStorage.setItem("espanhol", e.target.espanhol.value)
-    localStorage.setItem("drums", e.target.drums.value)
-    localStorage.setItem("extra-cash", e.target.extraCash.value)
+    let emptyValue;
 
-    if (e.target.books.value && e.target.classes.value && e.target.projects.value && e.target.english.value && e.target.espanhol.value && e.target.drums.value && e.target.extraCash.value) {
+    listTasks.forEach((listProp) => {
+
+      let prop = listProp.toLowerCase().split(" ").join("")
+
+      if (document.querySelector(`#${prop}`).value !== "") {
+
+        localStorage.setItem(prop, document.querySelector(`#${prop}`).value.toLowerCase().replace(/(?:^|\s)(?!da|de|do)\S/g, l => l.toUpperCase()).split(","))
+      } else {
+        emptyValue = true
+      }
+    })
+
+    numberTasks.forEach((numberProp) => {
+
+      let prop = numberProp.toLowerCase().split(" ").join("")
+
+      if (document.querySelector(`#${prop}`).value !== "") {
+
+        localStorage.setItem(prop, document.querySelector(`#${prop}`).value)
+      } else {
+        emptyValue = true
+      }
+    })
+
+    valueTasks.forEach((valueProp) => {
+
+      let prop = valueProp.toLowerCase().split(" ").join("")
+
+      if (document.querySelector(`#${prop}`).value !== "") {
+
+        localStorage.setItem(prop, document.querySelector(`#${prop}`).value)
+      } else {
+        emptyValue = true
+      }
+    })
+
+    if (!emptyValue) {
 
       submitWeekGoals()
 
@@ -27,7 +57,6 @@ const MissionInput = ({ submitWeekGoals }) => {
       }, 2200)
 
     }
-
   }
 
   return (
@@ -35,31 +64,37 @@ const MissionInput = ({ submitWeekGoals }) => {
       <div className='mission-input-container'>
         <h2>Metas da semana</h2>
         <form onSubmit={(e) => handleSubmit(e)}>
-          <label>Livros para a semana:
-            <input name='books' type="text" placeholder='insira os nomes dos livros separados por vírgula' />
-          </label>
-          <label>Aulas da semana:
-            <input name='classes' type="text" placeholder='insira os nomes dos locais de aula separados por vírgula' />
-          </label>
-          <label>Projetos da semana:
-            <input name='projects' type="text" placeholder='insira os nomes dos projetos separados por vírgula' />
-          </label>
-          <label>Frequência na semana:
+          {listTasks ? listTasks.map((listProp) => {
+            return (
+              <label>{listProp}:
+                <input name={listProp} id={listProp.toLowerCase().split(" ").join("")} type="text" placeholder="insira os nomes dos itens separados por vírgula"/>
+              </label>
+            )
+          }) : <></>}
+          {numberTasks ? <label>Frequência:
             <div className="inner-container">
-              <span>Inglês <input name='english' type="number" /></span>
-              <span>Espanhol <input name='espanhol' type="number" /></span>
-              <span>Bateria <input name='drums' type="number" /></span>
+              {numberTasks ? numberTasks.map((numberProp) => {
+                return (
+                  <span>{numberProp} <input name={numberProp} id={numberProp.toLowerCase().split(" ").join("")} type="number" placeholder='1-7' /></span>
+                )
+              }) : <></>}
             </div>
-          </label>
-          <label id='extra-cash-input'>Meta de Renda Extra: R$
-            <input name='extraCash' type="text" />
-          </label>
+          </label>: <></>}
+          <div className="value-container" style={valueTasks && valueTasks.length > 1 && valueTasks.length < 4 ? { gridTemplateColumns: `repeat(${valueTasks.length}, 1fr)`, gap: "1rem", textAlign: "center" } : {}}>
+            {valueTasks ? valueTasks.map((valueProp) => {
+              return (
+                <label id={valueProp}>{valueProp}:
+                  <input name={valueProp} id={valueProp.toLowerCase().split(" ").join("")} type="text" placeholder='R$' />
+                </label>
+              )
+            }) : <></>}
+          </div>
           <input type="submit" />
         </form>
       </div>
       <span id="error-span">
-          Preencha todas as informações para continuar...
-        </span>
+        Preencha todas as informações para continuar...
+      </span>
     </div>
   )
 }

@@ -1,0 +1,37 @@
+nav {
+    width: 20rem;
+    height: 95vh;
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    border-right: var(--border);
+}
+
+nav a {
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: var(--border);
+    cursor: pointer;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+nav a:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+nav button {
+    border: none;
+    background-color: transparent;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+nav button:hover {
+    transform: scale(1.3);
+}
