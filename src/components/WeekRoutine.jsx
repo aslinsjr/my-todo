@@ -47,7 +47,7 @@ const WeekRoutine = () => {
     function handleSubmitValue(e) {
         e.preventDefault()
         
-        localStorage.setItem(value, `R$ ${valueNumber}`)
+        localStorage.setItem(value, valueNumber)
         setClicked(false)
     }
 
@@ -56,6 +56,11 @@ const WeekRoutine = () => {
             setTaskArray(localStorage.getItem("taskArray").split(","))
             setValueTasks(localStorage.getItem("valuePropArray").split(","))
         }
+
+        if (!localStorage.getItem("taskArray")) {
+            window.location.href = `${window.location.href}tasks`
+        }
+        
 
     }, [])
 
@@ -92,7 +97,7 @@ const WeekRoutine = () => {
                                 <th>{task}</th>
                                 {dayArray.map((day) => {
                                     return (
-                                        <td id={normalizeProp(task) + day} onClick={(e) => handleClickValue(e)}>{localStorage.getItem(normalizeProp(task) + day)}</td>
+                                        <td id={normalizeProp(task) + day} onClick={(e) => handleClickValue(e)}>{localStorage.getItem(normalizeProp(task) + day) ? "R$ " + localStorage.getItem(normalizeProp(task) + day) : ""}</td>
                                     )
                                 })}
                             </tr>
