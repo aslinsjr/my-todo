@@ -1,14 +1,14 @@
 .week-routine {
-    width: 100%;
+    max-height: 90vh;
+    overflow-y: scroll;
+}
+
+.week-routine::-webkit-scrollbar {
+    display: none;
 }
 
 .week-routine h2 {
     margin-bottom: 1rem;
-}
-
-.week-routine table {
-    max-height: 90vh;
-    overflow: scroll;
 }
 
 .week-routine tr {
