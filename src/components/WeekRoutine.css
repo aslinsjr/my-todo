@@ -22,9 +22,8 @@
     min-height: 3rem;
     min-width: 6rem;
     font-size: 0.7rem;
-    font-weight: 300;
+    font-weight: 500;
     align-items: center;
-    text-transform: uppercase;
 }
 
 .week-routine td, th {
