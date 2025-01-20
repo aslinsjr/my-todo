@@ -2,8 +2,6 @@ import './GoalsComponent.css'
 
 const GoalsComponent = () => {
 
-    console.log(JSON.parse(localStorage.getItem("weekGoals")))
-
     return (
         <div className="goals-container">
             {localStorage.getItem("weekGoals") ? JSON.parse(localStorage.getItem("weekGoals")).map((task) => {

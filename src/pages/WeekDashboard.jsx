@@ -47,6 +47,9 @@ const WeekDashboard = () => {
       setGoals(true)
     }
 
+    
+    console.log(JSON.parse(localStorage.getItem("weekGoals")))
+
   }, [])
 
   return (
