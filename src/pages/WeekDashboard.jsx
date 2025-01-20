@@ -53,7 +53,7 @@ const WeekDashboard = () => {
     <div className="dashboard container">
       {goals && localStorage.getItem("taskArray") ? <MissionInput handleSubmit={handleSubmit} /> : <></>}
       <WeekRoutine /> 
-      {/* <GoalsComponent /> */}
+      <GoalsComponent />
     </div>
   )
 }
