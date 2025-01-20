@@ -6,6 +6,10 @@
     margin-bottom: 1rem;
 }
 
+.week-routine table {
+    max-height: 90vh;
+}
+
 .week-routine tr {
     width: 100%;
     height: 100%;
