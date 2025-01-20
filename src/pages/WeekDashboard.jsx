@@ -15,18 +15,22 @@ const WeekDashboard = () => {
   function handleSubmit(e) {
     e.preventDefault()
 
-    let goalsArray = JSON.parse(localStorage.getItem("taskArray")).map((task) =>{
+    let goalsArray = JSON.parse(localStorage.getItem("taskArray")).map((task) => {
       if (task.type === "lista") {
         return {
           name: task.name,
           lista: document.querySelector(`#${task.ifLista.toLowerCase().split(" ").join("")}`).value
         }
-      } else if (task.type === "frequencia") {
+      }
+
+      if (task.type === "frequencia") {
         return {
           name: task.name,
           frequencia: document.querySelector(`#${task.name.toLowerCase().split(" ").join("")}`).value
         }
-      } else {
+      }
+
+      if (task.type === "valor") {
         return {
           name: task.name,
           valor: document.querySelector(`#${task.name.toLowerCase().split(" ").join("")}`).value
@@ -52,7 +56,7 @@ const WeekDashboard = () => {
   return (
     <div className="dashboard container">
       {goals && localStorage.getItem("taskArray") ? <MissionInput handleSubmit={handleSubmit} /> : <></>}
-      <WeekRoutine /> 
+      <WeekRoutine />
       <GoalsComponent />
     </div>
   )
