@@ -8,6 +8,7 @@
 
 .week-routine table {
     max-height: 90vh;
+    overflow: scroll;
 }
 
 .week-routine tr {
