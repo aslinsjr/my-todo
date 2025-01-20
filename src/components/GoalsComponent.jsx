@@ -4,7 +4,7 @@ const GoalsComponent = () => {
 
     return (
         <div className="goals-container">
-            {localStorage.getItem("weekGoals") ? JSON.parse(localStorage.setItem("weekGoals")).map((task) => {
+            {localStorage.getItem("weekGoals") ? JSON.parse(localStorage.getItem("weekGoals")).map((task) => {
                 if (task.lista) {
                     return (
                         <h2>{task.name}: <span>{task.lista}</span></h2>
