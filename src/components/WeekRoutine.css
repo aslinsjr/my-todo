@@ -24,6 +24,7 @@
     font-size: 0.7rem;
     font-weight: 300;
     align-items: center;
+    text-transform: uppercase;
 }
 
 .week-routine td, th {
