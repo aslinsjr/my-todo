@@ -1,4 +1,5 @@
 .goals-container {
+    width: 30%;
     max-height: 90vh;
     overflow: scroll;
     padding-right: 1rem;

@@ -1,0 +1,14 @@
+.routine-history table {
+    width: 33%;
+}
+
+.routine-history th, 
+.routine-history td {
+    font-size: 0.5rem;
+    font-weight: 400;
+    cursor: auto;
+}
+
+.routine-history td:hover {
+    background-color: transparent;
+}
