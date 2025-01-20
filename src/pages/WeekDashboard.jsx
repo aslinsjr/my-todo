@@ -35,7 +35,7 @@ const WeekDashboard = () => {
     })
 
     setGoals(false)
-    localStorage.setItem("weekGoals", goalsArray)
+    localStorage.setItem("weekGoals", JSON.stringify(goalsArray))
   }
 
   useLayoutEffect(() => {
@@ -47,16 +47,13 @@ const WeekDashboard = () => {
       setGoals(true)
     }
 
-    
-    console.log(JSON.parse(localStorage.getItem("weekGoals")))
-
   }, [])
 
   return (
     <div className="dashboard container">
       {goals && localStorage.getItem("taskArray") ? <MissionInput handleSubmit={handleSubmit} /> : <></>}
       <WeekRoutine /> 
-      <GoalsComponent />
+      {/* <GoalsComponent /> */}
     </div>
   )
 }
