@@ -34,9 +34,8 @@ const NavBar = () => {
     return (
       <nav>
         <Link to={"/"}>Quadro Semanal</Link>
-        <Link to={"/tasks"}>Criar Rotina</Link>
         <Link to={"/history"}>Histórico</Link>
-        <Link to={"/edit"}>Editar Tarefas</Link>
+        <Link to={"/tasks"}>Editar Tarefas</Link>
         <ClockComponent />
         <button onClick={() => handleChangeSchema()}><img src={scheme === "dark" ? "./sol.png" : "./lua.png"} alt="" /></button>
       </nav>

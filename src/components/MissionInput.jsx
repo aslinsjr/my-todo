@@ -1,100 +1,38 @@
 import './MissionInput.css'
 
-const MissionInput = ( { submitWeekGoals, listTasks, numberTasks, valueTasks } ) => {
-
-  function handleSubmit(e) {
-    e.preventDefault()
-
-    let emptyValue;
-
-    listTasks.forEach((listProp) => {
-
-      let prop = listProp.toLowerCase().split(" ").join("")
-
-      if (document.querySelector(`#${prop}`).value !== "") {
-
-        localStorage.setItem(prop, document.querySelector(`#${prop}`).value.toLowerCase().replace(/(?:^|\s)(?!da|de|do)\S/g, l => l.toUpperCase()).split(","))
-      } else {
-        emptyValue = true
-      }
-    })
-
-    numberTasks.forEach((numberProp) => {
-
-      let prop = numberProp.toLowerCase().split(" ").join("")
-
-      if (document.querySelector(`#${prop}`).value !== "") {
-
-        localStorage.setItem(prop, document.querySelector(`#${prop}`).value)
-      } else {
-        emptyValue = true
-      }
-    })
-
-    valueTasks.forEach((valueProp) => {
-
-      let prop = valueProp.toLowerCase().split(" ").join("")
-
-      if (document.querySelector(`#${prop}`).value !== "") {
-
-        localStorage.setItem(prop, document.querySelector(`#${prop}`).value)
-      } else {
-        emptyValue = true
-      }
-    })
-
-    if (!emptyValue) {
-
-      submitWeekGoals()
-
-      localStorage.setItem("week-goals", true)
-
-    } else {
-      document.querySelector("#error-span").style.display = "block"
-
-      setTimeout(() => {
-        document.querySelector("#error-span").style.display = "none"
-      }, 2200)
-
-    }
-  }
+const MissionInput = ({ handleSubmit }) => {
 
   return (
     <div className="background-modal">
       <div className='mission-input-container'>
         <h2>Metas da semana</h2>
         <form onSubmit={(e) => handleSubmit(e)}>
-          {listTasks ? listTasks.map((listProp) => {
-            return (
-              <label>{listProp}:
-                <input name={listProp} id={listProp.toLowerCase().split(" ").join("")} type="text" placeholder="insira os nomes dos itens separados por vírgula"/>
-              </label>
-            )
-          }) : <></>}
-          {numberTasks ? <label>Frequência:
-            <div className="inner-container">
-              {numberTasks ? numberTasks.map((numberProp) => {
-                return (
-                  <span>{numberProp} <input name={numberProp} id={numberProp.toLowerCase().split(" ").join("")} type="number" placeholder='1-7' /></span>
-                )
-              }) : <></>}
-            </div>
-          </label>: <></>}
-          <div className="value-container" style={valueTasks && valueTasks.length > 1 && valueTasks.length < 4 ? { gridTemplateColumns: `repeat(${valueTasks.length}, 1fr)`, gap: "1rem", textAlign: "center" } : {}}>
-            {valueTasks ? valueTasks.map((valueProp) => {
+          {localStorage.getItem("taskArray") ? JSON.parse(localStorage.getItem("taskArray")).map((task) => {
+            if (task.type === "lista") {
               return (
-                <label id={valueProp}>{valueProp}:
-                  <input name={valueProp} id={valueProp.toLowerCase().split(" ").join("")} type="text" placeholder='R$' />
+                <label>{task.ifLista}:
+                  <input id={task.ifLista.toLowerCase().split(" ").join("")} type="text" placeholder="insira os nomes dos itens separados por vírgula" />
                 </label>
               )
-            }) : <></>}
-          </div>
+            }
+            if (task.type === "frequencia") {
+              return (
+                <label id={task.name}>{task.name}:
+                  <input id={task.name.toLowerCase().split(" ").join("")} type="number" placeholder='1-7 vezes na semana' />
+                </label>
+              )
+            }
+            if (task.type === "valor") {
+              return (
+                <label id={task.name}>{task.name}:
+                  <input name={task.name} id={task.name.toLowerCase().split(" ").join("")} type="text" placeholder='R$' />
+                </label>
+              )
+            }
+          }) : <></>}
           <input type="submit" />
         </form>
       </div>
-      <span id="error-span">
-        Preencha todas as informações para continuar...
-      </span>
     </div>
   )
 }

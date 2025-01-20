@@ -9,7 +9,6 @@ import ErrorPage from './pages/ErrorPage.jsx'
 import WeekDashboard from './pages/WeekDashboard.jsx'
 import RoutineHistory from './pages/RoutineHistory.jsx'
 import TasksAndGoals from './pages/TasksAndGoals.jsx'
-import EditTasks from './pages/EditTasks.jsx'
 
 const router = createBrowserRouter([
   {
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
       {
         path:"/tasks",
         element: <TasksAndGoals />
-      },
-      {
-        path:"/edit",
-        element: <EditTasks />
       }
     ]
   },

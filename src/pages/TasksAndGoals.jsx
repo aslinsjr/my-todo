@@ -1,85 +1,54 @@
 import { useState, useLayoutEffect } from 'react'
 
-import { Link } from 'react-router-dom'
-
 import TasksInput from '../components/TasksInput'
-import MissionInput from '../components/MissionInput'
 
 const TasksAndGoals = () => {
 
-  const [listTasks, setListTasks] = useState()
-  const [numberTasks, setNumberTasks] = useState()
-  const [valueTasks, setValueTasks] = useState()
+  const [taskList, setTaskList] = useState([{id: 1}, {id: 2}])
 
-  const [tasks, setTasks] = useState(false)
-  const [taskList, setTaskList] = useState([1, 2])
+  function handleClick(e) {
+    if (e.target.value === "+") {
+      setTaskList(prevList => [...prevList, {id: taskList.length + 1}])
 
-  function handleClick() {
-    setTaskList(prevList => [...prevList, taskList[taskList.length - 1] + 1])
-
+    } else {
+      setTaskList(taskList.slice(0, taskList.length -1))
+    }
+    
   }
 
   function handleSubmit(e) {
     e.preventDefault(e)
 
     let taskArray = []
-    let listPropArray = []
-    let numberPropArray = []
-    let valuePropArray = []
 
     taskList.forEach((task) => {
 
-      if (document.querySelector(`#inputTypeSelect${task}`).value === "lista" || document.querySelector(`#inputTypeSelect${task}`).value === "frequencia") {
-        taskArray.push(document.querySelector(`#inputTask${task}`).value)
+      const taskObject = {
+        id: task.id,
+        name: document.querySelector(`#inputTask${task.id}`).value,
+        type: document.querySelector(`#inputTypeSelect${task.id}`).value,
+        ifLista: document.querySelector(`#inputType${task.id}`).value
       }
 
-      if (document.querySelector(`#inputTypeSelect${task}`).value === "lista") {
-        listPropArray.push(document.querySelector(`#inputType${task}`).value)
-      }
-
-      if (document.querySelector(`#inputTypeSelect${task}`).value === "frequencia") {
-        numberPropArray.push(document.querySelector(`#inputTask${task}`).value)
-      }
-
-      if (document.querySelector(`#inputTypeSelect${task}`).value === "valor") {
-        valuePropArray.push(document.querySelector(`#inputTask${task}`).value)
-      }
+      taskArray.push(taskObject)
 
     })
 
-    localStorage.setItem("taskArray", taskArray)
+    localStorage.setItem("taskArray", JSON.stringify(taskArray))
 
-    setListTasks(listPropArray)
-    localStorage.setItem("listPropArray", listPropArray)
+    window.location.href = window.location.href.replace("tasks", "")
 
-    setNumberTasks(numberPropArray)
-    localStorage.setItem("numberPropArray", numberPropArray)
-
-    setValueTasks(valuePropArray)
-    localStorage.setItem("valuePropArray", valuePropArray)
-
-    setTasks(true)
   }
 
-  function submitWeekGoals() {
-    setTasks(false)
-
-    // window.location.href = "http://localhost:5173/"
+  useLayoutEffect(() => {
+    if (localStorage.getItem("taskArray")) {
+      setTaskList(JSON.parse(localStorage.getItem("taskArray")))
   }
-
-  // useLayoutEffect(() =>{
-  //   if (localStorage.getItem("weekGoals")) {
-  //     setTasks(localStorage.getItem("weekGoals"))
-  //     setListTasks(localStorage.getItem("listPropArray").split(","))
-  //     setNumberTasks(localStorage.getItem("numberPropArray").split(","))
-  //     setValueTasks(localStorage.getItem("valuePropArray").split(","))
-  //   }
-  // })
+  }, [])
 
   return (
     <div className='container'>
-      {tasks ? <MissionInput submitWeekGoals={submitWeekGoals} listTasks={listTasks} numberTasks={numberTasks} valueTasks={valueTasks} /> :
-        <TasksInput handleClick={handleClick} taskList={taskList} handleSubmit={handleSubmit} />}
+      <TasksInput handleClick={handleClick} taskList={taskList} handleSubmit={handleSubmit} />
     </div>
   )
 }
