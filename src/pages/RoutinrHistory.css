@@ -4,7 +4,8 @@
 
 .routine-history th, 
 .routine-history td {
-    font-size: 0.5rem;
+    max-height: 2rem;
+    font-size: 0.45rem;
     font-weight: 400;
     cursor: auto;
 }

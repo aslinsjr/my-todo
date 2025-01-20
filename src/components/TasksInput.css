@@ -63,6 +63,8 @@
 .tasks-container {
     max-height: 70vh;
     overflow: scroll;
+    border: var(--border);
+    padding: 1rem;
 }
 
 .tasks-container::-webkit-scrollbar {
